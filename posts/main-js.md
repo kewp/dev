@@ -1,7 +1,7 @@
 ---
 title: main.js
 date: 2020-06-13
-tags:
+tags: dev
 layout: layouts/post.njk
 ---
 

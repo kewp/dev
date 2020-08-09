@@ -1,7 +1,7 @@
 ---
 title: confidence and software.txt
 date: 2020-06-16
-tags:
+tags: dev
 layout: layouts/post.njk
 ---
 

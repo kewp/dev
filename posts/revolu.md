@@ -1,9 +1,7 @@
 ---
 title: revolu.txt
 date: 2020-06-06
-tags:
-  - dev
-  - firkin
+tags: dev
 layout: layouts/post.njk
 ---
 

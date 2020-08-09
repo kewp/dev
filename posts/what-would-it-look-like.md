@@ -1,7 +1,7 @@
 ---
 title: what would it look like.txt
 date: 2020-07-21
-tags:
+tags: dev
 layout: layouts/post.njk
 ---
 

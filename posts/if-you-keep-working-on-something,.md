@@ -1,7 +1,7 @@
 ---
 title: if you keep working on something.txt
 date: 2020-06-30
-tags:
+tags: dev
 layout: layouts/post.njk
 ---
 

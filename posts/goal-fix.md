@@ -1,7 +1,7 @@
 ---
 title: goal fix.txt
 date: 2020-05-14
-tags:
+tags: dev
 layout: layouts/post.njk
 ---
 
