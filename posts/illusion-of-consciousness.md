@@ -1,7 +1,7 @@
 ---
 title: illusion of consciousness.txt
 date: 2021-06-30
-tags: dev
+tags: 
 layout: layouts/post.njk
 ---
 
