@@ -1,0 +1,233 @@
+---
+title: events and state are the same thing.txt
+date: 2021-08-01
+tags: 
+layout: layouts/post.njk
+---
+
+this idea is beyond insane, the kind of 'whoa' you think
+when you're high. i don't know if i'm just hazy from not
+sleeping well but it feels like in one fell swoop i've
+stumbled onto a solution to several fundamental problems
+i've been grappling with, and they are none other than
+the issues in the laws of physics, the problem of
+consciousness and, bizarrely since no one respects it
+any like as much as the others, the design of computer
+software.
+
+i came upon this trying to solve an issue i was having
+writing some code for work so i'm going to start there.
+but eventually i will assert, on a whim mind you and
+not having thought it through at all, the the problem
+at the heart of both physics and the mystery of
+consciousness is not seeing a link between events
+like movement and properties like mass. what if they
+are simply different forms of one another? how elegant
+and somehow even obvious...
+
+here is the software problem: i have a set of objects
+that may or may not clash in some way. i have a function
+`clash` which determines if they do, and then another
+function `split` which returns differentiated versions
+of each.
+
+```python
+def clash (obj1,obj2):
+    return True; # or false depending
+
+def split (obj1,obj2):
+    return [obj1,obj2] # but split up in some way
+```
+
+let's ignore what is inside the objects. we want to
+go through a list of objects and return a new list
+with the split off versions:
+
+
+```python
+clashes = []
+noclashes = []
+for obj1 in get_objs():
+    for obj2 in get_objs():
+        if obj1 != obj2 and clash(obj1,obj2):
+```
+
+i'm losing my train of thought.
+
+i meant perhaps or rather to say that _functions_ and state
+are the same thing. let's get specific about the objects:
+
+```json
+{
+    "name": "Ridgeback ray, The Alps",
+    "species": "Ridgeback ray",
+    "type": "Gutted",
+    "preservation": "iced",
+    "origin": "The Alps",
+    "point_of_trade": "Ex-farm, The Alps",
+    "description": "Imported from API",
+    "note": "Imported from API"
+}
+```
+
+Here is some data on produce and i want to ensure it doesn't
+clash with other data which might look like
+
+```json
+{
+    "name": "Ridgeback ray, The Alps",
+    "species": "Ridgeback ray",
+    "type": "Whole",
+    "preservation": "iced",
+    "origin": "The Alps",
+    "point_of_trade": "Ex-farm, The Alps",
+    "description": "Imported from API",
+    "note": "Imported from API"
+}
+```
+
+See, they have the same name which is made up of
+_species_ plus _origin_. However they are not
+the same because of _type_. So I've created two
+sets of functions: `clash` which checks that the
+names are the same, and `split` which pulls them
+apart by saying 'ok if the type is different then
+use that in the name too' i.e. `Ridgeback ray, whole, The Alp`.
+
+> I work for a company that catalogues seafood data. I've
+modified some fields to hide the data's source
+
+The problem is that I want to insert these objects into
+the database but they need to be unique on the _name_
+field. How do i determine which objects have clashed?
+
+## key or function
+
+here is my insight: i could either use a key or a function
+
+```python
+names = {}
+for obj in objs:
+    name = obj['name']
+    if name not in names:
+        names[name] = [obj]
+    else:
+        names[name].append(obj)
+```
+
+i've created a list of all the clashes by using the
+primary field i need to ensure is unique.
+
+however, what happens if it isn't a field i need to check
+for - what if on the database i'm using a combination of,
+say, type and preservation? well i could presumably then
+make the above code more generic: instead of using
+keys i could just have a list of lists, each one grouped
+by the function:
+
+
+```python
+groups = []
+for obj in objs:
+    found = False
+    for group in groups:
+        for item in group:
+            if same(obj,item):
+                group.append(obj)
+                found = True
+    if not found:
+        groups.append([obj])
+```
+
+so now i have a structure like
+
+```json
+[
+    [obj,obj,obj],
+    [obj],
+    [obj],
+    [obj],
+]
+```
+
+where each first-level list is groups
+of objects which return the same value
+through our equality function `same`.
+
+## key or function
+
+ok again so what. my point is - what is
+the difference between these two approaches?
+what does `same` do?
+
+whatever it does it _must_ be representable
+by a string... _that is my insight_ or instinct
+(or perhaps just unsubstatiatable assertion).
+
+does that make sense? whatever `same` does can
+we not represent it as a string? i mean, to
+check if two objects are the same - do we not
+just convert it into a string and then compare?
+
+i'm sure computer science students would quickly
+see some common algorithm and say yes of course
+and so what. but take a step back then and answer
+me this - did we not just replace _data_
+with _a function_ ? and if so, what is the difference?
+
+## auto
+
+in some sense this is obvious: if i have a function
+that returns some value and takes in an object then
+yes - we can replace the function applied to the object
+with just the value:
+
+```python
+def transform(obj):
+
+    return obj['last'] + ', ' + obj['first']
+
+obj = {
+    'first': 'Karl',
+    'last': 'Penzhorn'
+}
+
+name = transform(obj)
+
+if name == 'Penzhorn, Karl':
+    print('Yes it is the same, obviously')
+```
+
+yes of course this is obvious but i think then that
+the significance of it is not apparent.
+
+ok, how about this - to all the programmers out there:
+how often do you think about this? if you use functional
+programming, sure - i suppose all the time (i don't have
+much experience in fp). but let's stick with imperative
+for now. to all the java, c, javascript, python programmers:
+when you look at your code and you see a variable `name` or
+`data` - do you see a function? no, you see a variable,
+you see a value. but the value and the function that made
+it up are equivalent. and again, of course, of course i hear
+so many people saying, but if it's so obvious why don't
+you think about it? i've been a programmer for a very long
+time and i _never_ see it like that. and why? because it
+is absolutely _insanely_ complex to do that. but it's true!
+just because it's beyond impossible, so much so that even
+considering it would break anyone's brain, it's still true!
+
+```js
+
+let data = await fetch_data('https://api.com/field1/field2');
+let process_level_1 = process_data(data);
+let process_level_2;
+if (process_level_1.blue) {
+    process_level_2 = act_on_blue(process_level_1);
+} else {
+    process_level_2 = act_on_not_blue(process_level_1);
+}
+
+```
+
+what is `process_level_2`? well, it depends.
