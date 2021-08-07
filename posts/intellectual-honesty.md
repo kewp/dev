@@ -1,3 +1,10 @@
+---
+title: intellectual honesty.txt
+date: 2021-08-07
+tags: 
+layout: layouts/post.njk
+---
+
 sam harris mentioned intellectual honesty.
 it's not the best term but i can't think of a better one.
 but it says something that i have struggled to codefy or
