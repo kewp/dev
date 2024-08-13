@@ -130,6 +130,6 @@ isn't that crazy?
 and if you look at this, and imagine that ... if i'm doing
 this here, in this particular instance ... there's a good
 chance i'm doing it elsewhere as well ... how ... how much
-stress and pain and suffering and shame ... and i simply
+stress and pain and suffering and shame ... am i simply
 letting myself go through, through neglect? through pointless
 neglect ... ?
