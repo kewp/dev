@@ -36,9 +36,9 @@ and every time it's the same story: sit and stare
 at it, think to myself "ok, trade portal ... hmmm ...
 what do i need to do ...". then realise, oh - i should
 check if the us census api has this data ... if not,
-problem solves: "tom, the us census hasn't published
+problem solved: "tom, the us census hasn't published
 june data for that product code yet" ... nothing i can
-do.
+do about it.
 
 however, if the census api does have june data ...
 then there is something wrong with the importer ....
@@ -50,10 +50,10 @@ i have an issue with this it's like turning an oil
 tanker, it takes forever to really understand it, remember
 all the complexities, what goes where, which machine is
 running what, how does it cache, what databases, what
-scripts are running, how ...
+scripts are running ...
 
 and each time it's this manual thing - ok, i need to
-check the api script ... how does it work ... click,
+check the api script ... how does it work ...
 try to remember which repo holds the code ... often
 this whole process is me just staring at my computer
 stupidly, waiting for my brain to give me an answer ...
