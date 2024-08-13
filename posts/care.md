@@ -79,6 +79,8 @@ the source folder, cat out those files ... right, i
 now have the strings of the db url ... i can now
 connect. let's see if i can do it from my own computer ...
 
+...
+
 holy shit. i've just gotten started.
 
 and i do this _every fucking time_ ...... and what i
